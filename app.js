@@ -1,12 +1,14 @@
 // DEPENDENCIES
 const express = require("express");
 const transactionsController = require("./controllers/transactionsController");
+const cors = require("cors");
 
 // CONFIGURATION
 const app = express();
 
 // MIDDLEWARE
 app.use(express.json()); // Parse incoming JSON
+app.use(cors());
 
 // ROUTES
 app.get("/", (req, res) => {
