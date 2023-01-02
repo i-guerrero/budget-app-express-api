@@ -15,9 +15,30 @@ transactions.get("/:id", (req, res) => {
   }
 });
 
+// Add validateItem function
 transactions.post("/", (req, res) => {
   transactionsArray.push(req.body);
   res.json(transactionsArray[transactionsArray.length - 1]);
+});
+
+transactions.delete("/:id", (req, res) => {
+  const id = req.params.id;
+  if (transactionsArray[id]) {
+    transactionsArray.splice(id, 1);
+    res.json(transactionsArray);
+  } else {
+    res.status(404).json({ error: "Item with ID not found" });
+  }
+});
+
+transactions.put("/:id", (req, res) => {
+  const id = req.params.id;
+  if (transactions[id]) {
+    transactionsArray[id] = req.body;
+    res.json(transactionsArray[id]);
+  } else {
+    res.status(404).json({ error: "Item with ID not found" });
+  }
 });
 
 // 404 Catch all
