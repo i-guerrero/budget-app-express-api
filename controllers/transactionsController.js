@@ -11,7 +11,7 @@ transactions.get("/:id", (req, res) => {
   if (transactionsArray[id]) {
     res.json(transactionsArray[id]);
   } else {
-    res.redirect("/*");
+    res.status(404).redirect("/404");
   }
 });
 
