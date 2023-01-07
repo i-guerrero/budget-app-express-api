@@ -1,14 +1,15 @@
-# fly.toml file generated for proud-paper-4117 on 2023-01-04T19:41:07-05:00
+# fly.toml file generated for polished-sea-2285 on 2023-01-04T20:13:09-05:00
 
-app = "proud-paper-4117"
+app = "polished-sea-2285"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
 
 [build]
-  image = "flyio/hellofly:latest"
+  builder = "heroku/buildpacks:20"
 
 [env]
+  PORT = "8080"
 
 [experimental]
   allowed_public_ports = []
