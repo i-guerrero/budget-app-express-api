@@ -33,9 +33,9 @@ transactions.delete("/:id", (req, res) => {
 
 transactions.put("/:id", (req, res) => {
   const id = req.params.id;
-  if (transactions[id]) {
+  if (transactionsArray[id]) {
     transactionsArray[id] = req.body;
-    res.json(transactionsArray[id]);
+    res.status(200).json(transactionsArray[id]);
   } else {
     res.status(404).json({ error: "Item with ID not found" });
   }
